@@ -21,4 +21,4 @@ Route::get('/mail', function () {
     Mail::to($destino)->send(new EnvioCorreoMail());
 
     return "correo enviado";
-});
+})->name('mail');
