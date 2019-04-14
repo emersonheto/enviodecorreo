@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/mail', function () {
+
+    $destino=["emersonheto@gmail.com"];
+    Mail::to($destino)->send(new EnvioCorreoMail());
+
+    return "correo enviado";
+});
