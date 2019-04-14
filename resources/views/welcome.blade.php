@@ -87,7 +87,7 @@
                 <div class="links">
                     <a href=" {{ route('mail') }} ">Correo</a>
                     <a href=" {{ route('mail2') }} ">Correo2</a>
-                    <a href="https://blog.laravel.com">Blog</a>
+                    <a href=" {{ route('job') }} ">job</a>
                     <a href="https://nova.laravel.com">Nova</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>

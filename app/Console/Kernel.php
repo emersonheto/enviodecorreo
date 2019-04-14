@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        'App\Console\Commands\CronEmail'
     ];
 
     /**
@@ -24,8 +24,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        //A ESTA HORA SE REPETIRA EL JOBTODOS LOS DIAS 
+        $schedule->command('notify:email')
+                 ->dailyAt('16:20');
+                 //esta es la hora del hosting
     }
 
     /**

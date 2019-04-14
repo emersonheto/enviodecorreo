@@ -24,4 +24,5 @@ Route::get('/mail', function () {
 })->name('mail');
  
 	
-Route::get('/correosend', 'sendemailController@enviarcorreo')->name('mail2');
+Route::get('/correosend', 'sendemailController@enviarcorreo')->name('mail2');	
+Route::get('/envioJob', 'sendemailController@envioConjob')->name('job');

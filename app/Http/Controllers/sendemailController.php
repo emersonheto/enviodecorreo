@@ -17,8 +17,15 @@ class sendemailController extends Controller
     */
         $user[1]="emersonheto@gmail.com";
         dispatch((new NewprofileCreated($user[1]))->delay(60));
-                
+
         return "correo enviado";
 
+    }
+ 
+    public function envioConjob()
+    {
+        $job=new NewprofileCreated();
+        dispatch($job);
+        return "correo con job enviado";
     }
 }

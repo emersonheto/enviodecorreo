@@ -1,44 +1,46 @@
 <?php
 
-namespace App\Jobs;
+namespace App\Console\Commands;
 
-use App\User;
 use App\Mail\EnvioCorreoMail;
-use Illuminate\Bus\Queueable;
+use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
- 
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Foundation\Bus\Dispatchable;
 
-class NewprofileCreated implements ShouldQueue //este es el job
+class cronEmail extends Command
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'command:name';
 
     /**
-     * Create a new job instance.
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Command description';
+
+    /**
+     * Create a new command instance.
      *
      * @return void
      */
-    // protected $user;
-
-    public function __construct( )
+    public function __construct()
     {
-        // $this->user = $user;
+        parent::__construct();
     }
 
     /**
-     * Execute the job.
+     * Execute the console command.
      *
-     * @return void
+     * @return mixed
      */
     public function handle()
-    {
-        
-        //SE PASARA TODO ESTO AL CONSOLE  cronEmail.php
+    { 
 
         //Aqui se enviara los correos diariamente a todos los usuarios
         $users=User::all(); //cambiar por la lista de correos 
@@ -46,16 +48,12 @@ class NewprofileCreated implements ShouldQueue //este es el job
         // $files=DB::table('files')->join('users', 'users.id', '=', 'files.client_id')
         // ->select(DB::raw("*,DATEDIFF(files.date_expire,NOW()) AS diferencia"))->get();//->pluck('file');
 
-        //  con esto tengo todos los datos cargados listo para ser llamado en la vista o los correos 
-                        
         $destino=["microsoft.mail.us@gmail.com","emersonheto@gmail.com"];
         foreach ($destino as $des ) {
            echo "el correo es : ".$des."<br>";
            Mail::to($des)->queue(new EnvioCorreoMail());
            Log::info("Se envio al correo de notificacion a :  $des ");
         }
-         
-        
 
 
     }
