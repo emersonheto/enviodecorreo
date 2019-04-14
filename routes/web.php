@@ -22,3 +22,6 @@ Route::get('/mail', function () {
 
     return "correo enviado";
 })->name('mail');
+ 
+	
+Route::get('/correosend', 'sendemailController@enviarcorreo')->name('mail2');

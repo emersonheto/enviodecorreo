@@ -16,7 +16,7 @@ class EnvioCorreoMail extends Mailable
      *
      * @return void
      */
-    public $distressCall;
+   
 
     public function __construct()
     {
