@@ -18,9 +18,9 @@ class EnvioCorreoMail extends Mailable
      */
     public $distressCall;
 
-    public function __construct(DistressCall $distressCall)
+    public function __construct()
     {
-        $this->distressCall = $distressCall;
+        
     }
     
     /**
@@ -30,6 +30,6 @@ class EnvioCorreoMail extends Mailable
      */
     public function build()
     {
-        return $this->view('email.sendcorreo');
+        return $this->view('emails.sendcorreo');
     }
 }

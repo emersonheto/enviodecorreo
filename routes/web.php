@@ -16,9 +16,9 @@ Route::get('/', function () {
 });
 
 Route::get('/mail', function () {
-
+    $call="nada";
     $destino=["emersonheto@gmail.com"];
-    Mail::to($destino)->send(new EnvioCorreoMail());
+    \Mail::to($destino)->send(new App\Mail\EnvioCorreoMail($call));
 
     return "correo enviado";
 })->name('mail');
