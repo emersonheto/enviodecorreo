@@ -2,18 +2,18 @@
 
 namespace App\Console;
 
+use App\Console\Commands\cronEmail;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
-{
-    /**
-     * The Artisan commands provided by your application.
-     *
-     * @var array
-     */
+{ 
+    // protected $commands = [
+    //     'App\Console\Commands\cronEmail'
+    // ];
+
     protected $commands = [
-        'App\Console\Commands\CronEmail'
+         cronEmail::class,
     ];
 
     /**
@@ -25,8 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         //A ESTA HORA SE REPETIRA EL JOBTODOS LOS DIAS 
-        $schedule->command('notify:email')
-                 ->dailyAt('16:20');
+        $schedule->command('command:cronEmail')->everyMinute();
                  //esta es la hora del hosting
     }
 
