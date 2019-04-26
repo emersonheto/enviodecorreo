@@ -93,8 +93,11 @@
                             <a href="https://twitter.com/TVMAS1"><img src="https://i.postimg.cc/63zspm3Y/b1a3fab214230557053ed1c4bf17b46c-icono-de-twitter-logo-by-vexels.png" alt="" style="width:30px;"></a>
                             <a href="https://www.linkedin.com/company/tvmas-magazine/about/"><img src="https://i.postimg.cc/wT1K9FdQ/linkeding.png" alt="" style="width:30px;"></a>
     
-                            <p class="nameemer" > 
-                              PRUEBA N2 EMERSON
+                            <p class="nameemer" style="background-color: black; color: yellow; "  > 
+                              PRUEBA de 
+                             {{-- @foreach ($users as $user) --}}
+                                  {{ json_encode($users,true)}} 
+                             {{-- @endforeach --}}
                             </p>
                         </td>
                     </tr>
